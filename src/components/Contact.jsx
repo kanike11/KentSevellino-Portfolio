@@ -5,7 +5,7 @@ import {
   FaClock,
   FaGithub,
   FaLinkedin,
-  FaMedium,
+  FaUpwork,
   FaMoon,
   FaSun,
   FaArrowUp
@@ -20,6 +20,7 @@ export default function Contact() {
   });
   const [status, setStatus] = useState('idle'); // idle | sending | success | error
   const [theme, setTheme] = useState('dark');
+  const contactEmail = 'klsevellino.work@gmail.com';
 
   // Toggle Theme between Dark and Light Mode
   const toggleTheme = () => {
@@ -51,16 +52,25 @@ export default function Contact() {
 
     setStatus('sending');
 
-    // Simulate sending message
-    setTimeout(() => {
-      setStatus('success');
-      setFormData({ name: '', email: '', message: '' });
+    const subject = `Portfolio message from ${formData.name}`;
+    const body = [
+      `To: ${contactEmail}`,
+      `From: ${formData.name} <${formData.email}>`,
+      `Subject: ${subject}`,
+      '',
+      'Message:',
+      formData.message
+    ].join('\n');
 
-      // Reset status after a few seconds
-      setTimeout(() => {
-        setStatus('idle');
-      }, 4000);
-    }, 1200);
+    const mailtoLink = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailtoLink;
+    setStatus('success');
+    setFormData({ name: '', email: '', message: '' });
+
+    setTimeout(() => {
+      setStatus('idle');
+    }, 3000);
   };
 
   return (
@@ -79,14 +89,14 @@ export default function Contact() {
         <div className="contact-grid">
           {/* Left Column: Info cards */}
           <div className="contact-left-col">
-            <a href="mailto:klsevellino.work@gmail.com" className="info-card-link">
+            <a href={`mailto:${contactEmail}`} className="info-card-link">
               <div className="info-card">
                 <div className="info-card__icon-container">
                   <FaEnvelope className="info-card__icon" />
                 </div>
                 <div className="info-card__content">
                   <span className="info-card__label">EMAIL</span>
-                  <span className="info-card__value">klsevellino.work@gmail.com</span>
+                  <span className="info-card__value">{contactEmail}</span>
                 </div>
               </div>
             </a>
@@ -97,7 +107,7 @@ export default function Contact() {
               </div>
               <div className="info-card__content">
                 <span className="info-card__label">LOCATION</span>
-                <span className="info-card__value">Davao, Philippines</span>
+                <span className="info-card__value">Amparo Homes Ilang, Davao City, Philippines</span>
               </div>
             </div>
 
@@ -121,8 +131,8 @@ export default function Contact() {
                 <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="connect-social-icon" aria-label="LinkedIn">
                   <FaLinkedin />
                 </a>
-                <a href="https://medium.com" target="_blank" rel="noopener noreferrer" className="connect-social-icon" aria-label="Medium">
-                  <FaMedium />
+                <a href="https://upwork.com" target="_blank" rel="noopener noreferrer" className="connect-social-icon" aria-label="Upwork">
+                  <FaUpwork />
                 </a>
               </div>
             </div>
@@ -186,7 +196,7 @@ export default function Contact() {
                 )}
                 {status === 'success' && (
                   <>
-                    <span>Message Sent!</span>
+                    <span>Compose Opened</span>
                   </>
                 )}
               </button>
@@ -200,11 +210,11 @@ export default function Contact() {
         <a href="https://github.com/kanike11" target="_blank" rel="noopener noreferrer" className="sidebar-social-icon" aria-label="GitHub">
           <FaGithub />
         </a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="sidebar-social-icon" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/kent-leonel-sevellino-7b7520417/" target="_blank" rel="noopener noreferrer" className="sidebar-social-icon" aria-label="LinkedIn">
           <FaLinkedin />
         </a>
-        <a href="https://medium.com" target="_blank" rel="noopener noreferrer" className="sidebar-social-icon" aria-label="Medium">
-          <FaMedium />
+        <a href="https://www.upwork.com/freelancers/~0118baeb31f45effb7" target="_blank" rel="noopener noreferrer" className="sidebar-social-icon" aria-label="Upwork">
+          <FaUpwork />
         </a>
       </div>
 

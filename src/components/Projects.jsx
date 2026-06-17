@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import DonmacImage from '../assets/DonMac.png';
 import Akasi from '../assets/AkasiClinic.png';
+import Umerch from '../assets/UMERCH-LOGIN-LOGO.png';
 
 const projects = [
     {
@@ -14,8 +15,8 @@ const projects = [
     {
         title: 'UMerch',
         description: 'A data-driven operations dashboard built for quick scanning, alerts, and task triage.',
-        tags: ['Dashboard', 'Analytics', 'Productivity'],
-        image: '',
+        tags: ['React', 'Laravel','MySql','JavaScript', 'PHP', 'Blade', 'HTML', 'CSS'],
+        image: Umerch,
         projectLink: '#',
         demoLink: '#',
     },
@@ -74,7 +75,7 @@ function ProjectCard({ project }) {
 
                 <div className="project-card__actions" aria-label={`${project.title} links`}>
                     <a className="button button--ghost project-card__button" href={project.projectLink} target="_blank" rel="noreferrer">
-                        Unavailable
+                        Unavailable Demo
                     </a>
                     <a className="button button--primary project-card__button" href={project.demoLink} target="_blank" rel="noreferrer">
                         View Project

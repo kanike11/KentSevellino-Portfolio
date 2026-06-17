@@ -40,15 +40,21 @@ export default function Hero() {
                 >
 
                     <h1>KENT LEONEL SEVELLINO</h1>
-                    <h2>ASPIRING BACKEND DEVELOPER</h2>
-                    <p className="hero__lede">I am a computer science student who is passionate about creating digital experiences across the universe.</p>
+                    <div className="hero__roles" aria-label="ASPIRING BACKEND DEVELOPER and QUALITY ASSURANCE PROFESSIONAL">
+                        <h2 className="hero__role hero__role--one" style={{ '--chars': 26 }}>
+                            ASPIRING BACKEND DEVELOPER
+                        </h2>
+                        <h2 className="hero__role hero__role--two" style={{ '--chars': 27 }}>
+                            QUALITY ASSURANCE
+                        </h2>
+                    </div>
+                    <p className="hero__lede">I am a Computer Science Student & Aspiring Backend Developer and
+                        Quality Assurance dedicated to building reliable systems,
+                        ensuring software quality, and continuously learning new technologies to create meaningful digital experiences.</p>
 
                     <div className="hero__actions">
                         <a className="button button--primary" href="#projects">
-                            Explore Projects
-                        </a>
-                        <a className="button button--ghost" href="#contact">
-                            Contact Mission Control
+                            My Projects
                         </a>
                     </div>
                 </motion.div>
